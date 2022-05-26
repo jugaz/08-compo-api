@@ -6,26 +6,23 @@
     "dev": "vue-cli-service serve",
     "prod": "vue-cli-service build"
   },
-
   "dependencies": {
+    "axios": "^0.27.2",
     "core-js": "^3.8.3",
     "vue": "^3.2.13",
     "vue-router": "^4.0.3",
     "vuex": "^4.0.0"
   },
-
   "devDependencies": {
     "@vue/cli-plugin-babel": "~5.0.0",
     "@vue/cli-plugin-router": "~5.0.0",
     "@vue/cli-plugin-vuex": "~5.0.0",
     "@vue/cli-service": "~5.0.0"
   },
-
   "repository": {
     "type": "git",
     "url": "git+https://github.com/jugaz/08-compo-api.git"
   },
-
   "author": "Jesús Antonio Ugaz Vegas",
   "license": "ISC",
   "bugs": {
