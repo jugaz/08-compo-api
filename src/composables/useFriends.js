@@ -7,18 +7,18 @@ const useFriends = ( friendsId = '1' ) => {
     const errorMessage = ref()
 
 
-    const searchFriends = async() => {
+    const searchFriends = async( id ) => {
+        if ( !id ) return
+
         isLoading.value = true
         friends.value = null
         
         try {
             //https://jugaz.github.io/series-tv-api/json/friends/1.json
 
-            const  { data } = await axios.get(`https://jugaz.github.io/series-tv-api/json/friends/${friendsId}.json`)
+            const  { data } = await axios.get(`https://jugaz.github.io/series-tv-api/json/friends/${id}.json`)
             friends.value = data 
             errorMessage.value = null
-
-            console.log('data',data)
 
             
         } catch (error) {
@@ -29,13 +29,15 @@ const useFriends = ( friendsId = '1' ) => {
         isLoading.value = false
     }
 
-    searchFriends()
+    searchFriends( friendsId )
 
 
     return {
         errorMessage,
         friends,
         isLoading,
+
+        searchFriends
     }
 
 
