@@ -5,7 +5,8 @@
     <router-link :to="{name: 'counter'}">Counter</router-link> |
     <router-link :to="{name: 'users'}">Usuarios</router-link> |
     <router-link :to="{name: 'friends-search'}">Buscar</router-link> |
-    <router-link :to="{name: 'todo'}">Todo</router-link>
+    <router-link :to="{name: 'todo'}">Todo</router-link> |
+    <router-link :to="{name: 'slots'}">slots</router-link>
   </nav>
 
 

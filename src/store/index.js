@@ -10,15 +10,34 @@ export default createStore({
       { id:'5', text:'Conseguir nuevos secuaces competentes', completed: false }
     ] 
   },
-  getters: {
-    pendingTodos( state, getters) {
-      return state.todos.filter(todo => !todo.completed)
-    }
-
-  },
   mutations: {
+    toggleTodo( state, id ) {
+      const todoIdx = state.todos.findIndex(todo => todo.id === id)
+      state.todos[todoIdx].completed = !state.todos[todoIdx].completed
+    } 
   },
   actions: {
+  },
+  getters: {
+    pendingTodos( state, getters, rootState ) {
+      return state.todos.filter(todo => !todo.completed)
+    },
+    allTodos: ( state, getters, rootState ) => {
+      // console.log({state, getters, rootState})
+      return state.todos
+    },
+    completedTodos: ( state, getters, rootState ) => {
+      return state.todos.filter(todo => todo.completed)
+    },
+    getTodosByTab: ( _, getters ) => ( tab ) => {
+
+      switch (tab) {
+        case 'all': return getters.allTodos
+        case 'pending': return getters.pendingTodos
+        case 'completed': return getters.completedTodos
+      }
+    }
+
   },
   modules: {
   }
